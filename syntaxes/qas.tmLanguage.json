@@ -3,6 +3,15 @@
   "name": "qas",
   "patterns": [
     {
+      "include": "#qas-plus"
+    },
+    {
+      "include": "#qas-at"
+    },
+    {
+      "include": "#qas-boolean"
+    },
+    {
       "include": "#qas-keywords"
     },
     {
@@ -21,11 +30,69 @@
         }
       ]
     },
-    "qas-at": {
+    "qas-boolean": {
       "patterns": [
         {
           "name": "keyword.control.untitled",
-          "match": "\\b(\\!\\@|\\@)\\.*(?!\\()"
+          "match": "(!@|@)\\w+"
+        }
+      ]
+    },
+    "qas-plus": {
+      "patterns": [
+        {
+          "begin": "\\+[^\\(|\\s]+\\(",
+          "end": "\\)",
+          "patterns": [
+            {
+              "include": "#qas-at"
+            },
+            {
+              "include": "#qas-boolean"
+            },
+            {
+              "include": "#qas-code-block"
+            },
+            {
+              "include": "#qas-text"
+            },
+            {
+              "include": "#qas-unsign-text"
+            }
+          ]
+        }
+      ]
+    },
+    "qas-at": {
+      "patterns": [
+        {
+          "begin": "@[^\\(|\\s]+\\(",
+          "end": "\\)",
+          "patterns": [
+            {
+              "include": "#qas-at"
+            },
+            {
+              "include": "#qas-boolean"
+            },
+            {
+              "include": "#qas-code-block"
+            },
+            {
+              "include": "#qas-text"
+            },
+            {
+              "include": "#qas-unsign-text"
+            }
+          ]
+        }
+      ]
+    },
+    "qas-unsign-text": {
+      "patterns": [
+        {
+          "name": "constant.character.escape.untitled",
+          "match": "\\w+"
         }
       ]
     },
@@ -45,8 +112,6 @@
       "end": "```",
       "patterns": [
         {
-          "begin": "[^`]",
-          "while": "[^`]",
           "contentName": "meta.embedded.block.elixir",
           "patterns": [
             {
