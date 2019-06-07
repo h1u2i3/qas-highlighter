@@ -1,0 +1,61 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "qas",
+  "patterns": [
+    {
+      "include": "#qas-keywords"
+    },
+    {
+      "include": "#qas-text"
+    },
+    {
+      "include": "#qas-code-block"
+    }
+  ],
+  "repository": {
+    "qas-keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.untitled",
+          "match": "\\b(object|field|schema|validation|permission|seed|wechat|callback|extension|do|end)\\b"
+        }
+      ]
+    },
+    "qas-at": {
+      "patterns": [
+        {
+          "name": "keyword.control.untitled",
+          "match": "\\b(\\!\\@|\\@)\\.*(?!\\()"
+        }
+      ]
+    },
+    "qas-text": {
+      "name": "string.quoted.single.untitled",
+      "begin": "`",
+      "end": "`",
+      "patterns": [
+        {
+          "name": "constant.character.escape.untitled",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "qas-code-block": {
+      "begin": "```",
+      "end": "```",
+      "patterns": [
+        {
+          "begin": "[^`]",
+          "while": "[^`]",
+          "contentName": "meta.embedded.block.elixir",
+          "patterns": [
+            {
+              "include": "source.js"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "scopeName": "source.qas"
+}

@@ -1,0 +1,37 @@
+{
+  "name": "qas-highlighter",
+  "displayName": "qas-highlighter",
+  "description": "Graphql Api Server",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.35.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "qas",
+        "aliases": [
+          "qas",
+          "qas"
+        ],
+        "extensions": [
+          ".qas"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "qas",
+        "scopeName": "source.qas",
+        "path": "./syntaxes/qas.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.elixir": "elixir"
+        }
+      }
+    ]
+  }
+}
