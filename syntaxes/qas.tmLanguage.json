@@ -3,6 +3,9 @@
   "name": "qas",
   "patterns": [
     {
+      "include": "#qas-comments"
+    },
+    {
       "include": "#qas-code-block"
     },
     {
@@ -22,6 +25,14 @@
     }
   ],
   "repository": {
+    "qas-comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign",
+          "match": "\\#.*$"
+        }
+      ]
+    },
     "qas-keywords": {
       "patterns": [
         {
@@ -41,9 +52,22 @@
     "qas-plus": {
       "patterns": [
         {
-          "begin": "\\+[^\\(|\\s]+\\(",
-          "end": "\\)",
+          "begin": "(\\+[^\\(|\\s]+\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "entity.name.tag"
+            }
+          },
+          "end": "(\\))",
+          "endCaptures": {
+            "1": {
+              "name": "entity.name.tag"
+            }
+          },
           "patterns": [
+            {
+              "include": "#qas-comments"
+            },
             {
               "include": "#qas-at"
             },
@@ -66,9 +90,22 @@
     "qas-at": {
       "patterns": [
         {
-          "begin": "@[^\\(|\\s]+\\(",
-          "end": "\\)",
+          "begin": "(@[^\\(|\\s]+\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "entity.name.type"
+            }
+          },
+          "end": "(\\))",
+          "endCaptures": {
+            "1": {
+              "name": "entity.name.type"
+            }
+          },
           "patterns": [
+            {
+              "include": "#qas-comments"
+            },
             {
               "include": "#qas-at"
             },
