@@ -115,7 +115,7 @@
           "contentName": "meta.embedded.block.elixir",
           "patterns": [
             {
-              "include": "source.js"
+              "include": "source.elixir"
             }
           ]
         }
