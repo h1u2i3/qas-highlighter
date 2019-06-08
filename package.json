@@ -3,7 +3,8 @@
   "displayName": "qas-highlighter",
   "publisher": "h1u2i3",
   "description": "Graphql Api Server config file.",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "icon": "images/logo.png",
   "engines": {
     "vscode": "^1.35.0"
   },
@@ -20,7 +21,7 @@
         "id": "qas",
         "aliases": [
           "qas",
-          "qas"
+          "Qas"
         ],
         "extensions": [
           ".qas"

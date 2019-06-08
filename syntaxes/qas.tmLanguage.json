@@ -3,6 +3,9 @@
   "name": "qas",
   "patterns": [
     {
+      "include": "#qas-code-block"
+    },
+    {
       "include": "#qas-plus"
     },
     {
@@ -16,9 +19,6 @@
     },
     {
       "include": "#qas-text"
-    },
-    {
-      "include": "#qas-code-block"
     }
   ],
   "repository": {
