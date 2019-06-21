@@ -37,7 +37,7 @@
       "patterns": [
         {
           "name": "keyword.control.untitled",
-          "match": "\\b(object|field|schema|validation|permission|seed|wechat|setting|global|callback|extension|do|end)\\b"
+          "match": "\\b(object|field|schema|validation|permission|seed|wechat|setting|worker|global|callback|extension|do|end)\\b"
         }
       ]
     },
